@@ -4,16 +4,16 @@ class Review extends React.Component {
 
   onSubmit(event){
     event.preventDefault();
-    var playerName = this.refs.playerInput.value;
-    this.props.onSubmit(playerName);
+    var reviewGame = this.refs.reviewInput.value;
+    this.props.onSubmit(reviewGame);
   }
 
   render(){
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
-        <label>Player name:</label>
-        <input ref="playerInput" />
-        <button>Add Player</button>
+        <label>Review:</label>
+        <input ref="reviewInput" />
+        <button>Add Review</button>
       </form>
     );
   }

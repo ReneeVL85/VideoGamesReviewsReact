@@ -1,4 +1,5 @@
 import React from 'react';
+import Index from "./index";
 
 class Category extends React.Component {
   render() {
