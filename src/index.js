@@ -15,7 +15,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Categories} />
-      <Route path="categories/:categoryID" component={Category}>
+      <Route path="categories/:categoryId" component={Category}>
         <IndexRoute component={Games} />
         <Route path="games/:gameId" component={Game}>
           <IndexRoute component={Reviews} />

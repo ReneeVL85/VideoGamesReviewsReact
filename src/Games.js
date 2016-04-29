@@ -1,4 +1,5 @@
 import React from 'react';
+import Index from "./index";
 import jQuery from "jquery";
 import {Link} from "react-router";
 
@@ -16,7 +17,7 @@ class Games extends React.Component {
 
   getGames(){
     let component = this
-    let url="https://gentle-wildwood-67500.herokuapp.com/categories/1/games.json";
+    let url="https://gentle-wildwood-67500.herokuapp.com/categories/" + this.props.params.categoryId +  "/games.json";
     jQuery.getJSON(url, function(data){
       component.setState({
         games: data.games
@@ -25,14 +26,15 @@ class Games extends React.Component {
   }
 
   render() {
+    var categoryId = this.props.params.categoryId;
     return (
-      <div className="Categories">
+      <div className="games">
         <h1>Games!</h1>
         <ul>
         {this.state.games.map(function(game){
           return(
             <li key={game.id}>
-            <Link to={`/categories/${category.id}games/${game.id}`}>{game.title}</Link>
+            <Link to={`/categories/${categoryId}games/${game.id}`}>{game.title}</Link>
             </li>
           );
         })}

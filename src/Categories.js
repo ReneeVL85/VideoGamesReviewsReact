@@ -25,6 +25,7 @@ class Categories extends React.Component {
   }
 
   render() {
+
     return (
       <div className="categories">
         <h1>Categories!</h1>

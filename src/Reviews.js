@@ -15,7 +15,7 @@ class Reviews extends React.Component {
 
   getReviews(){
     let component = this
-    let url="https://gentle-wildwood-67500.herokuapp.com/categories/ +this.props.params.categoryId+ /games/ + this.props.params.gamesId/reviews.json";
+    let url="https://gentle-wildwood-67500.herokuapp.com/categories/"+ this.props.params.categoryId + "/games/" + this.props.params.gamesId + "/reviews.json";
     jQuery.getJSON(url, function(data){
       component.setState({
         games: data.reviews
@@ -24,6 +24,8 @@ class Reviews extends React.Component {
   }
 
   render() {
+    var categoryId = this.props.params.categoryId
+    var gamesId = this.props.params.gamesId
     return (
       <div className="reviews">
         <h1>Games!</h1>
@@ -31,7 +33,7 @@ class Reviews extends React.Component {
         {this.state.reviews.map(function(game){
           return(
             <li key={review.id}>
-            <Link to={`/categories/${category.id}games/${game.id}/reviews/${review.id}`}>{review.title}</Link>
+            <Link to={`/categories/${categoryId}games/${gameId}/reviews/${review.id}`}>{review.title}</Link>
             </li>
           );
         })}
